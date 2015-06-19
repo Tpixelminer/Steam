@@ -3,6 +3,7 @@ public class Board{
     private Letter [] word;
     private Letter [] remainingLetters; 
     private final String [] alphabet = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+    
 
     private int lives;
     private int wordLength;
@@ -28,7 +29,7 @@ public class Board{
         this.lives = 6;
     }
 
-    private boolean allLettersFilled(){
+    public boolean allLettersFilled(){
         for(Letter letter : word){
             if(!letter.isGuessed()){
                 return false;
@@ -51,11 +52,11 @@ public class Board{
         return this.lives;
     }
 
-    private void updateNumberOfLives(boolean correct){
+    public void updateNumberOfLives(boolean correct){
+    if (correct == false) {
+        lives = lives - 1; 
 
-        /**
-         * ENTER CODE FOR UPDATING NUMBER OF LIVES REMAINING
-         */
+    }
     }
 
     public boolean setMove(String move){
@@ -75,7 +76,6 @@ public class Board{
         }
 
 
-        updateNumberOfLives(correct);
 
 
         return correct;
